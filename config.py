@@ -1,28 +1,33 @@
-"""All your settings live here. Edit this file, never the others."""
+"""All your settings live here."""
 
 CARDS = {
     "Chase Sapphire Preferred": [
         "sapphire preferred", "csp", "chase sapphire", "ultimate rewards",
-        "chase offers", "chase travel"
+        "chase offers", "chase travel", "hyatt", "united airlines",
+        "aeroplan", "flying blue", "singapore airlines", "british airways",
     ],
     "BoA Atmos / Premium Rewards": [
         "atmos", "atmos rewards", "atmos ascent", "atmos summit",
-        "alaska airlines visa", "hawaiian airlines visa",
-        "bank of america premium rewards", "premium rewards elite",
-        "customized cash rewards", "preferred rewards", "bofa rewards",
-        "bankamerideals",
+        "alaska airlines", "hawaiian airlines", "oneworld",
+        "cathay pacific", "japan airlines", "jal",
     ],
     "Amex": [
-        "amex", "american express", "amex gold", "amex platinum",
-        "amex blue", "amex green", "amex everyday", "membership rewards",
-        "amex offers", "amex cobalt", "delta skymiles", "hilton honors amex",
-        "marriott bonvoy amex", "amex centurion",
+        "amex", "american express", "membership rewards",
+        "amex gold", "amex platinum", "amex transfer",
+        "ana", "all nippon", "cathay", "singapore airlines",
+        "eva air", "hilton", "marriott",
     ],
     "Citi": [
-        "citi", "citibank", "citi double cash", "citi premier",
-        "citi custom cash", "citi diamond preferred", "citi rewards",
-        "thankyou points", "citi prestige", "citi strata",
-        "citi aadvantage", "costco citi",
+        "citi", "citibank", "thankyou points", "citi premier",
+        "citi strata", "citi transfer", "eva air", "singapore airlines",
+        "cathay pacific", "turkish airlines",
+    ],
+    "Asia Miles": [
+        "asia miles", "cathay pacific", "eva air", "長榮",
+        "ana mileage", "jal mileage", "star alliance",
+        "oneworld", "skyteam", "taipei", "tokyo", "shanghai",
+        "beijing", "hong kong", "taiwan", "japan", "china",
+        "asia award", "asia route", "transpacific",
     ],
 }
 
@@ -37,10 +42,12 @@ RSS_FEEDS = [
 REDDIT_FEEDS = [
     ("r/CreditCards", "https://www.reddit.com/r/CreditCards/new.json?limit=100"),
     ("r/churning",    "https://www.reddit.com/r/churning/new.json?limit=100"),
+    ("r/awardtravel", "https://www.reddit.com/r/awardtravel/new.json?limit=100"),
 ]
 
 KW_NEW       = ["launch", "announce", "added", "now earns", "new benefit",
-                "introduces", "unveils", "debut", "rolls out"]
+                "introduces", "unveils", "debut", "rolls out", "new route",
+                "bonus transfer", "transfer bonus"]
 KW_EXPIRING  = ["expire", "expires", "ends ", "last day", "limited time",
                 "through ", "deadline", "must use by", "valid until"]
 KW_DEVALUE   = ["devalue", "no longer", "removed", "discontinued",
