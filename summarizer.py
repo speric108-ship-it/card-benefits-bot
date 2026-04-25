@@ -23,6 +23,10 @@ def summarize(items):
     prompt = f"""你是一個專業的信用卡顧問。我持有以下信用卡：
 1. Chase Sapphire Preferred（年費 $95）
 2. Bank of America Atmos Rewards（前身是 Alaska Airlines Visa）
+3. American Express（各種 Amex 卡）
+4. Citi（各種 Citi 卡）
+5. Marriot (最便宜的那張)
+
 
 以下是本週從各大信用卡部落格和 Reddit 收集到的、跟我的卡相關的文章：
 
