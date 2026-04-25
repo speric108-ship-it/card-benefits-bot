@@ -1,9 +1,9 @@
 """Sends collected articles to Claude API for a Chinese summary."""
-import os, requests, json
+import os, requests
 
 def summarize(items):
     if not items:
-        return "🟢 本週信用卡檢查 — 這週沒有跟你的卡相關的新消息。"
+        return "🟢 本期檢查 — 沒有跟亞洲里程相關的新消息。"
 
     api_key = os.environ["ANTHROPIC_API_KEY"]
 
@@ -20,56 +20,20 @@ def summarize(items):
 
     article_text = "\n---\n".join(articles)
 
-    prompt = f"""你是一個專業的信用卡顧問。我持有以下信用卡：
-1. Chase Sapphire Preferred（年費 $95）
-2. Bank of America Atmos Rewards（前身是 Alaska Airlines Visa）
-3. American Express（各種 Amex 卡）
-4. Citi（各種 Citi 卡）
-5. Marriot (最便宜的那張)
+    prompt = f"""你是專精亞洲航線里程的信用卡顧問。
 
+用戶關注的路線：美國飛台灣、日本、中國大陸（含轉機選項）
+用戶持有的卡：Chase Sapphire Preferred、BoA Atmos Rewards、Amex、Citi
 
-以下是本週從各大信用卡部落格和 Reddit 收集到的、跟我的卡相關的文章：
+以下是本期收集到的相關文章：
 
 {article_text}
 
-請用繁體中文幫我整理一份「本週信用卡行動指南」，格式如下：
+請用繁體中文整理一份「亞洲里程快報」，重點放在：
+- 哪些轉點優惠對飛亞洲最有用（例如轉 ANA、長榮、國泰、日航、大韓等）
+- 亞洲線的里程票好消息（兌換標準變動、新航線、甜蜜點）
+- 住宿點數跟亞洲旅行相關的優惠（日本飯店、台灣飯店等）
+- 快到期的優惠要提醒
 
-📬 本週信用卡行動指南
-
-⏰ 【趕快行動】即將到期的優惠
-（列出快到期的優惠，告訴我具體該怎麼做才能把握）
-
-🆕 【新消息】本週新福利 / 新優惠
-（用白話文解釋每個新福利對我有什麼好處，值不值得用）
-
-⚠️ 【注意】福利縮水 / 變動
-（如果有卡片福利變差的消息，分析我是否該考慮關卡，以及關卡前要注意什麼才最划算）
-
-💡 【建議】本週行動清單
-（根據以上所有資訊，給我一個簡單的 to-do list，告訴我這週該做什麼）
-
-規則：
-- 全部用繁體中文
-- 不要只給我連結，要用你自己的話解釋重點
-- 語氣像朋友在聊天一樣，不要太正式
-- 如果某個分類沒有相關消息就跳過，不要硬寫
-- 最後可以附上原文連結讓我參考，但重點是你的分析和建議
-- 總長度控制在 LINE 訊息容易閱讀的範圍（不超過 2000 字）"""
-
-    r = requests.post(
-        "https://api.anthropic.com/v1/messages",
-        headers={
-            "x-api-key": api_key,
-            "anthropic-version": "2023-06-01",
-            "content-type": "application/json",
-        },
-        json={
-            "model": "claude-sonnet-4-6",
-            "max_tokens": 2000,
-            "messages": [{"role": "user", "content": prompt}],
-        },
-        timeout=60,
-    )
-    r.raise_for_status()
-    data = r.json()
-    return data["content"][0]["text"]
+格式規則：
+- 每張卡 / 每個消息用 1-3 句話講完，不要囉唆
