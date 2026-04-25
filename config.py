@@ -1,6 +1,5 @@
 """All your settings live here. Edit this file, never the others."""
 
-# ----- The cards you're tracking -----
 CARDS = {
     "Chase Sapphire Preferred": [
         "sapphire preferred", "csp", "chase sapphire", "ultimate rewards",
@@ -13,9 +12,20 @@ CARDS = {
         "customized cash rewards", "preferred rewards", "bofa rewards",
         "bankamerideals",
     ],
+    "Amex": [
+        "amex", "american express", "amex gold", "amex platinum",
+        "amex blue", "amex green", "amex everyday", "membership rewards",
+        "amex offers", "amex cobalt", "delta skymiles", "hilton honors amex",
+        "marriott bonvoy amex", "amex centurion",
+    ],
+    "Citi": [
+        "citi", "citibank", "citi double cash", "citi premier",
+        "citi custom cash", "citi diamond preferred", "citi rewards",
+        "thankyou points", "citi prestige", "citi strata",
+        "citi aadvantage", "costco citi",
+    ],
 }
 
-# ----- Sources to poll (public, no login needed) -----
 RSS_FEEDS = [
     ("Doctor of Credit",  "https://www.doctorofcredit.com/feed/"),
     ("The Points Guy",    "https://thepointsguy.com/feed/"),
@@ -29,7 +39,6 @@ REDDIT_FEEDS = [
     ("r/churning",    "https://www.reddit.com/r/churning/new.json?limit=100"),
 ]
 
-# ----- Classification keywords -----
 KW_NEW       = ["launch", "announce", "added", "now earns", "new benefit",
                 "introduces", "unveils", "debut", "rolls out"]
 KW_EXPIRING  = ["expire", "expires", "ends ", "last day", "limited time",
@@ -39,5 +48,4 @@ KW_DEVALUE   = ["devalue", "no longer", "removed", "discontinued",
 
 EXPIRING_WINDOW_DAYS = 30
 
-# ----- Notifier choice: "discord" or "line" -----
 NOTIFIER = "line"
